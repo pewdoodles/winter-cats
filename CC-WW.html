@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+<!-- website title, description and author name -->
+	<title>Winter Cats</title>
+	<meta name="description" content="Dress up your Cool Cat NFT with winter accessories">
+	<meta name="author" content="Skipper Lee">
+<!-- external JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<style>
+div	{
+	margin: 10px;
+	font-size: 20px;
+	}
+button	{
+	font-size: 20px;
+	}
+textarea	{
+	font-size: 20px;
+	}
+img	{
+	position: absolute;
+	width: 720px;
+	height: 720px;
+	}
+</style>
+<body>
+<div class="header">
+	<b>COOL CAT ID:</b> <textarea id="cc" name="cc" rows="1" cols="4">0</textarea> <button onclick="load()">LOAD</button>
+</div>
+<div class="preview" style="width:720px;height:720px;">
+	<img id="neck" src="none.png" style="z-index:3">
+	<img id="head" src="none.png" style="z-index:2">
+	<img id="body" src="none.png" style="z-index:1">
+	<img id="cat" src="base.png" style="z-index:0">
+</div>
+<div class="footer">
+	<b>BODY</b>
+	<button onclick="b0()">Clear</button>
+	<button onclick="bs()">Santa Suit</button>
+	<button onclick="b1()">Sweater 1</button>
+	<button onclick="b2()">Sweater 2</button>
+	<button onclick="b3()">Sweater 3</button>
+	<button onclick="b4()">Sweater 4</button>
+	<button onclick="b5()">Sweater 5</button>
+	<p>
+	<b>NECK</B>
+	<button onclick="n0()">Clear</button>
+	<button onclick="n1()">Scarf 1</button>
+	<button onclick="n2()">Scarf 2</button>
+	<button onclick="n3()">Scarf 3</button>
+	<button onclick="n4()">Scarf 4</button>
+	<br>
+	<button onclick="nw1()">Wide Scarf 1</button>
+	<button onclick="nw2()">Wide Scarf 2</button>
+	<button onclick="nw3()">Wide Scarf 3</button>
+	<button onclick="nw4()">Wide Scarf 4</button>
+	<button onclick="nw5()">Wide Scarf 5</button>
+	<p>
+	<b>HEAD</b>
+	<button onclick="h0()">Clear</button>
+	<button onclick="hr()">Rudolph</button>
+	<button onclick="hs()">Snow Man Face</button>
+</div>
+<script>
+	let API = "https://api.coolcatsnft.com/cat/";
+	function load() {
+		var num = document.getElementById("cc").value;
+		var URL = API + num;
+		$.getJSON(URL,function(data){
+		alert("LOADING IMAGE " + data.ipfs_image);
+		var src = data.ipfs_image;
+		document.getElementById('cat').src=src;
+		});
+	}
+	function b0() {
+	document.getElementById('body').src='none.png';
+	}
+	function bs() {
+	document.getElementById('body').src='santacoat.png';
+	}
+	function b1() {
+	document.getElementById('body').src='sweater00.png';
+	}
+	function b2() {
+	document.getElementById('body').src='sweater01.png';
+	}
+	function b3() {
+	document.getElementById('body').src='sweater02.png';
+	}
+	function b4() {
+	document.getElementById('body').src='sweater03.png';
+	}
+	function b5() {
+	document.getElementById('body').src='sweater04.png';
+	}
+	function n0() {
+	document.getElementById('neck').src='none.png';
+	}
+	function n1() {
+	document.getElementById('neck').src='scarf00.png';
+	}
+	function n2() {
+	document.getElementById('neck').src='scarf01.png';
+	}
+	function n3() {
+	document.getElementById('neck').src='scarf02.png';
+	}
+	function n4() {
+	document.getElementById('neck').src='scarf03.png';
+	}
+	function nw1() {
+	document.getElementById('neck').src='widescarf00.png';
+	}
+	function nw2() {
+	document.getElementById('neck').src='widescarf01.png';
+	}
+	function nw3() {
+	document.getElementById('neck').src='widescarf02.png';
+	}
+	function nw4() {
+	document.getElementById('neck').src='widescarf03.png';
+	}
+	function nw5() {
+	document.getElementById('neck').src='widescarf04.png';
+	}
+	function h0() {
+	document.getElementById('head').src='none.png';
+	}
+	function hr() {
+	document.getElementById('head').src='rudolph.png';
+	}
+	function hs() {
+	document.getElementById('head').src='snowmanface.png';
+	}
+</script>
+</body>
+</html>
